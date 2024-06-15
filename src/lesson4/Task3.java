@@ -15,9 +15,9 @@ public class Task3 {
         for (int i = 0; i < size; i++) {
             array[i] = (int) (Math.random() * 100);
         }
-        int min = 9;
+        int min = array[0];
         int indexmin = 0;
-        int max = 0;
+        int max = array[0];
         int indexmax = 0;
         for (int i = 0; i < size; i++) {
             if (array[i] < min) {
