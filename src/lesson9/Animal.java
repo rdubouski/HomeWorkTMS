@@ -1,7 +1,12 @@
 package lesson9;
 
-public interface Animal {
+public class Animal {
 
-    public void eat(String food);
-    public void voice();
+    public static void eat(String food) {
+
+    }
+
+    public static void voice() {
+
+    }
 }

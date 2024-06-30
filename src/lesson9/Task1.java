@@ -7,9 +7,26 @@ package lesson9;
 //туда “Grass” он должен написать в консоли что любит есть травку. Если передадим “Meat”
 //или другую строку то он будет недоволен.
 
+//Написать такой конструктор, который запретит создание объекта класса Dog в других
+//классах; Найти способ вызывать методы voice(), eat() класса Dog, который позволит
+//обойти ограничение, наложенное конструктором выше. Объяснить, как работают оба
+//способа.
+
 public class Task1 {
 
     public static void main(String[] args) {
+
+        Animal tiger = new Tiger();
+        Tiger.voice();
+        Tiger.eat("Meat");
+
+        Animal rabbit = new Rabbit();
+        Rabbit.voice();
+        Rabbit.eat("Meat");
+
+        //Animal dog = new Dog();
+        Dog.voice();
+        Dog.eat("Meat");
 
     }
 }

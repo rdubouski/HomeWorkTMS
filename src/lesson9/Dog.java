@@ -1,9 +1,12 @@
 package lesson9;
 
-public class Dog implements Animal{
+public final class Dog extends Animal{
 
-    @Override
-    public void eat(String food) {
+    private Dog() {
+
+    }
+
+    public static void eat(String food) {
         switch (food) {
             case "Meat": {
                 System.out.println("Dog like meat");
@@ -19,8 +22,7 @@ public class Dog implements Animal{
         }
     }
 
-    @Override
-    public void voice() {
+    public static void voice() {
         System.out.println("Dog voice");
     }
 }
