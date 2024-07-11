@@ -8,11 +8,13 @@ public class User implements Cloneable{
     private int id;
     private String name;
     private int age;
+    Address address;
 
-    public User(String name, int age) {
+    public User(String name, int age, Address address) {
         this.id = count;
         this.name = name;
         this.age = age;
+        this.address = address;
         count++;
     }
 
@@ -27,9 +29,9 @@ public class User implements Cloneable{
     public static User myClone(User[] users, int check, int id) throws CloneNotSupportedException {
         User newUser = null;
         if (check == 0) {
-            newUser = users[id];
-        } else if (check == 1) {
             newUser = users[id].clone();
+        } else if (check == 1) {
+            newUser = users[id].deepClone();
         }
         return newUser;
     }
@@ -37,6 +39,14 @@ public class User implements Cloneable{
     @Override
     public User clone() throws CloneNotSupportedException {
         return (User) super.clone();
+    }
+
+    public User deepClone() throws CloneNotSupportedException {
+        User copy = (User) super.clone();
+        if (this.address != null) {
+            copy.address = (Address) this.address.clone();
+        }
+        return copy;
     }
 
     @Override
@@ -55,9 +65,9 @@ public class User implements Cloneable{
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
+                ", address=" + address +
                 '}';
     }
 }

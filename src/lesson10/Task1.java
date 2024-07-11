@@ -13,9 +13,9 @@ public class Task1 {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        User pasha = new User("Паша", 23);
-        User pashtet = new User("Паша", 23);
-        User mike = new User("Майк", 23);
+        User pasha = new User("Паша", 23, new Address("Молодежная", "Новополоцк"));
+        User pashtet = new User("Паша", 23, new Address("Молодежная", "Новополоцк"));
+        User mike = new User("Майк", 23, new Address("Молодежная", "Новополоцк"));
 
         System.out.println("Pasha = " + pasha);
         System.out.println("Pashtet = " + pashtet);
@@ -41,6 +41,8 @@ public class Task1 {
         oleg = User.myClone(arrayUser, 0, 0);
         System.out.println("Oleg = " + oleg);
         oleg.setName("Олег");
+        oleg.address.setCity("Полоцк");
+        System.out.println("После изменений");
         System.out.println("Pasha = " + pasha);
         System.out.println("Oleg = " + oleg);
 
@@ -49,6 +51,8 @@ public class Task1 {
         roma = User.myClone(arrayUser, 1, 2);
         System.out.println("Roma = " + roma);
         roma.setName("Рома");
+        roma.address.setCity("Полоцк");
+        System.out.println("После изменений");
         System.out.println("Mike = " + mike);
         System.out.println("Roma = " + roma);
 
