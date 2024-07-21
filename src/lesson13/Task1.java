@@ -15,6 +15,13 @@ package lesson13;
 public class Task1 {
 
     public static void main(String[] args) {
+        try {
+            if (User.authentication("login", "pass1", "pass1")) {
+                System.out.println("Access is allowed");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
