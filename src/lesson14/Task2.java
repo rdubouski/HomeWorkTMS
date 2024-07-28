@@ -13,6 +13,7 @@ package lesson14;
 //информацию о том, почему этот документ не валиден
 
 import java.io.*;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,15 +21,14 @@ public class Task2 {
 
     public static void main(String[] args) {
 
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String path;
         File fileIn;
         String pathOutCorrect = "D:\\Programming\\Java\\project\\HomeWorkTMS\\src\\lesson14\\Task2OutCor.txt";
         String pathOutIncorrect = "D:\\Programming\\Java\\project\\HomeWorkTMS\\src\\lesson14\\Task2OutIncor.txt";
 
-        //System.out.print("\nВведите путь к папке: ");
-        //path = scanner.nextLine();
-        path = "src/lesson14/Task2In.txt";
+        System.out.print("\nВведите путь к файлу: ");
+        path = scanner.nextLine();
         fileIn = new File(path);
 
         if (fileIn.exists()) {
