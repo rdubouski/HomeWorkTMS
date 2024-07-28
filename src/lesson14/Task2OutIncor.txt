@@ -1,0 +1,3 @@
+asdasdasdde3323 документ должен начинаться с docnum или contract
+2ontract1234567 документ должен начинаться с docnum или contract
+contract123456 не верная длинна номера
