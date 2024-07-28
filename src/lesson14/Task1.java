@@ -16,15 +16,10 @@ public class Task1 {
 
         try {
             String text = Files.readString(Path.of(fileIn.toURI()));
-            System.out.println(text);
-
             String[] strings = text.split("[\\s,.!?]");
             int max = 0;
             String maxString = "";
             for (String tmp : strings) {
-                System.out.println(tmp);
-                System.out.println(tmp.length());
-                System.out.println(max);
                 if (tmp.length() > max) {
                     maxString = tmp;
                     max = tmp.length();
