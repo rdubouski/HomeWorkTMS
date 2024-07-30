@@ -1,33 +1,67 @@
 package lesson15;
 
-import java.util.Arrays;
-
 public class MyArrayList<T> {
 
     private Object[] value;
-    private int index = 0;
+    private int size;
 
     public MyArrayList() {
-        this.value = new Object[0];
+        size = 0;
+        value = new Object[0];
+    }
+
+    public MyArrayList(int capacity) {
+        size = 0;
+        value = new Object[capacity];
     }
 
     public void add(T element) {
-        System.out.println(value.length);
-        System.out.println(index);
-        if (value.length >= index) {
-            this.value = changeSize(this.value);
+        if (value.length == size) {
+            value = changeSize(value);
         }
-        this.value[index++] = element;
+        value[size++] = element;
     }
 
-    public int getSize() {
-        return value.length;
+    public Object get(int index) {
+        if (index >= size) {
+            System.out.println("Нет элемента с таким индексом!");
+            return null;
+        }
+        return value[index];
     }
+
+    public void clear() {
+        size = 0;
+    }
+
+    public boolean find(T element) {
+        for (int i = 0; i < size; i++) {
+            if (value[i].equals(element)) {
+                return true;
+            }
+        }
+        System.out.println("Нет такого элемента!");
+        return false;
+    }
+
+    public Object remove(int index) {
+        if (index >= size) {
+            System.out.println("Нет элемента с таким индексом!");
+            return null;
+        }
+        Object oldValue = value[index];
+        for (int i = index; i < size - 1; i++) {
+            value[i] = value[i + 1];
+        }
+        --size;
+        return oldValue;
+    }
+
 
     public Object[] changeSize(Object[] array) {
-        int newSize = array.length + 1;
+        int newSize = array.length + 10;
         Object[] newArray = new Object[newSize];
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < size; i++) {
             newArray[i] = array[i];
         }
         return newArray;
@@ -35,6 +69,15 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < size; i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(value[i]);
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
